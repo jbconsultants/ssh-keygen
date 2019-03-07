@@ -29,7 +29,7 @@ def main():
     '''
     priv_key = ec.generate_private_key(ec.SECP521R1(), default_backend())
 
-    with open(keyname + ".pem", "w") as privkey:
+    with open(keyname, "w") as privkey:
     	privkey.write(priv_key.private_bytes(
     		encoding=serialization.Encoding.PEM,
     		format=serialization.PrivateFormat.TraditionalOpenSSL,
@@ -46,7 +46,7 @@ def main():
         ))
 
 
-    os.chmod(keyname + ".pem", 0o400)
+    os.chmod(keyname, 0o400)
 
 if __name__ == '__main__':
 	main()
